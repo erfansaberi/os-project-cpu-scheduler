@@ -63,7 +63,21 @@ def calculate_average_waiting_time(processes: list[Process]) -> float:
 
 
 def calculate_average_turnaround_time(processes: list[Process]) -> float:
-    return 0  # TODO: Implement Average Turnaround Time calculator
+    """Calculate average turnaround time for a list of processes.
+
+    Args:
+        processes (list[Process]): List of processes
+
+    Returns:
+        float: Average turnaround time for the list of processes
+    """
+    total_turnaround_time = 0
+    for process in processes:
+        arrival_time = process.arrival_time
+        for burst in process.bursts:
+            total_turnaround_time += burst.end_time - arrival_time
+            arrival_time = burst.end_time
+    return total_turnaround_time / len(processes)
 
 
 def calculate_average_reponse_time(processes: list[Process]) -> float:
