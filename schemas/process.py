@@ -9,7 +9,7 @@ class ProcessBurst:
 
 @dataclass
 class Process:
-    id: int
+    id: str
     arrival_time: int
     priority: int
     burst_time: int
