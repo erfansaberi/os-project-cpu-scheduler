@@ -19,8 +19,8 @@ def calculate_statistics(processes: list[Process]) -> Statistics:
     cpu_bursts.sort(key=lambda burst: burst.start_time)
 
     # Calculate statistics
-    # Throughput = Total time / number of processes
-    throughput = cpu_bursts[-1].end_time / len(processes)
+    # Throughput = Number of processes / Total time
+    throughput = len(processes) / cpu_bursts[-1].end_time
     # CPU utilization = Total CPU burst time / Total time
     cpu_utilization = (
         sum(burst.end_time - burst.start_time for burst in cpu_bursts)
