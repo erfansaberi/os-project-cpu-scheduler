@@ -3,6 +3,7 @@ from copy import deepcopy
 
 from algorithms.utils import finished
 from schemas.process import Process, ProcessBurst
+from utils.bursts import join_bursts
 
 
 def schedule(processes: list[Process]) -> list[Process]:
@@ -59,4 +60,6 @@ def schedule(processes: list[Process]) -> list[Process]:
         )
         current_process.remaining_time -= 1
         current_time += 1
+
+    queue = join_bursts(queue)
     return queue

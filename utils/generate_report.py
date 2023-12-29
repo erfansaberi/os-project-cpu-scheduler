@@ -1,7 +1,7 @@
 from schemas.process import Process
 from schemas.report import Statistics
+from utils.bursts import get_bursts_as_list
 from utils.calculate_statistics import calculate_statistics
-from utils.get_bursts import get_bursts
 
 
 def generate_report(
@@ -29,6 +29,6 @@ def generate_report(
             log += f", {burst.start_time}, {burst.end_time}"
         report += f"{log}\n"
     report += "CPU Bursts (sorted): "
-    bursts = get_bursts(processes)
+    bursts = get_bursts_as_list(processes)
     report += " | ".join([f"{burst[0]}: {burst[1]}-{burst[2]}" for burst in bursts])
     return report
