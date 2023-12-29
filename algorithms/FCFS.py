@@ -1,3 +1,4 @@
+"""First Came First Served Algorithm"""
 from copy import deepcopy
 
 from algorithms.utils import finished
