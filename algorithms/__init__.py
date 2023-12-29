@@ -7,5 +7,5 @@ def get_all_algorithms() -> dict:
         "nonpreemptive_priority": NPriority,
         # "preemptive_sjf": PSJF,
         "nonpreemptive_sjf": NSJF,
-        # "roundrobin": RoundRobin,
+        "roundrobin": RoundRobin,
     }
