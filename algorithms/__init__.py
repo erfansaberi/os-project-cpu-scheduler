@@ -3,7 +3,7 @@ def get_all_algorithms() -> dict:
 
     return {
         "fcfs": FCFS,
-        # "preemptive_priority": PPriority,
+        "preemptive_priority": PPriority,
         "nonpreemptive_priority": NPriority,
         # "preemptive_sjf": PSJF,
         "nonpreemptive_sjf": NSJF,
