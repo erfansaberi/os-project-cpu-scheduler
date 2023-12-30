@@ -17,27 +17,41 @@ Usage: python3 app.py
 # Statistics: Throughput, CPU Utilization, Average Waiting Time, Average Turnaround Time, Average Response Time
 # Output: Statistics, Processes (ID, Start1, End1, Start2, End2, Start3, End3, Start4, End4, Start5, End5, ...)
 
-import gui.gui as gui
+import sys
 
-# import os
+if len(sys.argv) < 2:
+    print(
+        "Use 'python3 app.py gui' to run the GUI "
+        "or 'python3 app.py execute' to run the algorithms and generate reports"
+    )
+elif sys.argv[1] == "gui":
+    from gui.gui import GUI
 
-# from algorithms import get_all_algorithms
-# from utils.generate_report import generate_report
-# from utils.input_parser import parse_input_data
+    GUI()
+elif sys.argv[1] == "execute":
+    import os
 
-# if not os.path.exists("reports/"):
-#     os.mkdir("reports/")
+    from algorithms import get_all_algorithms
+    from utils.generate_report import generate_report
+    from utils.input_parser import parse_input_data
 
-# with open("list.txt") as file:
-#     print("Reading data from list.txt")
-#     data = parse_input_data(file.read())
+    if not os.path.exists("reports/"):
+        os.mkdir("reports/")
 
-# for algorithm_name, algorithm in get_all_algorithms().items():
-#     print(f"Scheduling by {algorithm_name} algorithm...", end="", flush=True)
-#     sch = algorithm.schedule(data)
-#     report = generate_report(sch)
-#     with open(f"reports/{algorithm_name}.txt", "w") as report_file:
-#         report_file.write(report)
-#     print("Done!")
+    with open("list.txt") as file:
+        print("Reading data from list.txt")
+        data = parse_input_data(file.read())
 
-# print("Finished")
+    for algorithm_name, algorithm in get_all_algorithms().items():
+        print(f"Scheduling by {algorithm_name} algorithm...", end="", flush=True)
+        sch = algorithm.schedule(data)
+        report = generate_report(sch)
+        with open(f"reports/{algorithm_name}.txt", "w") as report_file:
+            report_file.write(report)
+        print("Done!")
+
+    print("Finished")
+else:
+    print(f"Invalid command {sys.argv[1]}")
+    print("Use 'python3 app.py gui' to run the GUI")
+    print("or 'python3 app.py execute' to run the algorithms and generate reports")

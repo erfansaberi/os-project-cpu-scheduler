@@ -1,10 +1,7 @@
-from venv import create
-
 import customtkinter
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
 
-import algorithms
 from algorithms import get_all_algorithms
 from utils.bursts import get_bursts_as_list
 from utils.generate_report import generate_report
@@ -124,6 +121,3 @@ class GUI:
         # Draw Gantt Chart
         bursts = get_bursts_as_list(schedule)
         self.create_gantt_chart(bursts)
-
-
-GUI()
