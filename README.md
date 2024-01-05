@@ -21,3 +21,5 @@ The application can be used either in GUI mode or Script mode.
 2) Use 'python3 app.py gui' to run GUI mode.
 
     This will open the GUI application. Write your data in the input text box and choose the algorithm from the algorithms combo box, then click on Run button. The report will be shown in report text box and the Gantt chart will be drawn. You can use the toolbar to work with the chart.
+
+![GUI](./screenshots/gui.png)
