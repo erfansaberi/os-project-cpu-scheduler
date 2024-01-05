@@ -15,7 +15,7 @@ def parse_input_data(input_data: str) -> list[Process]:
     data = input_data.splitlines()
     processes = []
     for row in data:
-        pid, arrival_time, prioroty, burst_time = row.split(", ")
+        pid, arrival_time, prioroty, burst_time = row.split(",")
         processes.append(
             Process(
                 id=pid,
